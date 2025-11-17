@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://u1kubdmwrssp"]
+
+[ext_resource type="PackedScene" uid="uid://c51m5eud5bw5i" path="res://Scenes/LaserCannon.tscn" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://dnumjyq877c8" path="res://icon.svg" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://ddbgahspl00oi" path="res://Scenes/node_2d.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://dijue1qgbgnn3" path="res://Scenes/settings.tscn" id="4_1bvp3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
+
+[node name="Main" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LaserCannon" parent="CanvasLayer" instance=ExtResource("1_ig7tw")]
+
+[node name="Bird" parent="." instance=ExtResource("3_h2yge")]
+
+[node name="Settings" parent="." instance=ExtResource("4_1bvp3")]
+
+[node name="Hit" type="RigidBody2D" parent="."]
+position = Vector2(582, 101)
+mass = 0.05
+gravity_scale = 0.3
+
+[node name="Sprite2D" type="Sprite2D" parent="Hit"]
+texture = ExtResource("2_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit"]
+scale = Vector2(6.279998, 6.279998)
+shape = SubResource("RectangleShape2D_h2yge")
