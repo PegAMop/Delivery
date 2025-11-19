@@ -12,6 +12,6 @@ func _ready() -> void:
 		gravity_scale = -position.y/2000
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if position.x < -50:
 		queue_free()
