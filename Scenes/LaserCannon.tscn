@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c51m5eud5bw5i"]
 
-[ext_resource type="Texture2D" uid="uid://cbnctoj3op4ob" path="res://icon.svg" id="1_ttj7r"]
-[ext_resource type="Script" uid="uid://b80anfk1lkigw" path="res://LaserCannon.gd" id="2_vnmmp"]
+[ext_resource type="Texture2D" uid="uid://cd62t1s0kk1t7" path="res://Assets/Sprites/Robot_neutral.png" id="1_62njn"]
+[ext_resource type="Script" uid="uid://c6o4yad5mq5hk" path="res://Scenes/LaserCannon.gd" id="2_vnmmp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vnmmp"]
 
@@ -16,7 +16,7 @@ offset_top = -92.0
 offset_right = 46.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("1_ttj7r")
+texture = ExtResource("1_62njn")
 expand_mode = 1
 script = ExtResource("2_vnmmp")
 
