@@ -1,13 +1,13 @@
 extends TextureRect
 
-var hit_thrust: Vector2 = Vector2(1000, 0)
+var hit_thrust: Vector2 = Vector2(1500, 0)
 var hit_torque: int = 25000
 
 func _input(input: InputEvent) -> void:
 	if input.is_action_pressed("leftclick"):
 		var space_state = get_world_2d().direct_space_state
 		var g_mouse_position = get_global_mouse_position()
-		var raycast_query = PhysicsRayQueryParameters2D.create(global_position, g_mouse_position)
+		var raycast_query = PhysicsRayQueryParameters2D.create(global_position+size, g_mouse_position)
 		var raycast_result = space_state.intersect_ray(raycast_query)
 		
 		if raycast_result:
@@ -21,9 +21,9 @@ func _input(input: InputEvent) -> void:
 		else:
 			$Laser.global_position = g_mouse_position
 			
-		var middle_position: Vector2 = global_position+(size/2)
+		var middle_position: Vector2 = global_position+size
 		$Laser.rotation = $Laser.global_position.angle_to_point(middle_position) - (PI/2)
-		$Laser.size.y = $Laser.global_position.distance_to(middle_position)
+		$Laser.size.y = $Laser.global_position.distance_to(middle_position)/2
 		
 		$Laser.visible = true
 		$Laser/Timer.start()
