@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddbgahspl00oi"]
+
+[ext_resource type="Script" uid="uid://cndvb6x728277" path="res://Scenes/rigid_body_2d.gd" id="1_0e48y"]
+[ext_resource type="Texture2D" uid="uid://dnumjyq877c8" path="res://icon.svg" id="2_epypp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
+size = Vector2(128, 128)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Bird" type="RigidBody2D" parent="."]
+script = ExtResource("1_0e48y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bird"]
+texture = ExtResource("2_epypp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bird"]
+shape = SubResource("RectangleShape2D_0e48y")
