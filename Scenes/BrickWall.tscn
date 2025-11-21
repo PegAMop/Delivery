@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d08e3r2ih06pd"]
+
+[ext_resource type="Texture2D" uid="uid://cof1u4cxx5gr1" path="res://Assets/Sprites/LevelSprites/BrickWall.png" id="1_vqfpg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_noaq8"]
+size = Vector2(46, 112)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_vqfpg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_noaq8")
