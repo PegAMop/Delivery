@@ -4,6 +4,7 @@ extends RigidBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$AnimatedSprite2D.play("default")
 	position = Vector2(get_window().size.x,RandomNumberGenerator.new().randf_range(get_window().size.y/6,get_window().size.y))
 	linear_velocity = Vector2(speed,0)
 	if position.y <= get_window().size.y/2:
