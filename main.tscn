@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://u1kubdmwrssp"]
+[gd_scene load_steps=21 format=3 uid="uid://u1kubdmwrssp"]
 
 [ext_resource type="PackedScene" uid="uid://c51m5eud5bw5i" path="res://Scenes/LaserCannon.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://curylgcx4lk8t" path="res://main.gd" id="1_w48qg"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cghhde6ni1ere" path="res://hit.gd" id="3_w48qg"]
 [ext_resource type="PackedScene" uid="uid://dijue1qgbgnn3" path="res://Scenes/settings.tscn" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://cpjfr0ngwlec3" path="res://camera_2d.gd" id="4_lquwl"]
+[ext_resource type="AudioStream" uid="uid://lq4cf4tonmve" path="res://Assets/SFX/pixel-explosion-319166.mp3" id="5_cegan"]
 [ext_resource type="Script" uid="uid://pn3eyv1m2cg8" path="res://main_menu.gd" id="7_272bh"]
 [ext_resource type="Script" uid="uid://duenne2opb7rx" path="res://menumanager.gd" id="7_efxa6"]
 [ext_resource type="Material" uid="uid://djf0kuxdywxpg" path="res://Assets/Shaders/main.tres" id="7_ycdy4"]
@@ -14,7 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://citp5g81hqxyg" path="res://Assets/Sprites/UI/ButtonPressed.png" id="9_4c57u"]
 [ext_resource type="Texture2D" uid="uid://y45267wvsbwo" path="res://Assets/Sprites/UI/ButtonHover.png" id="9_kek77"]
 [ext_resource type="Script" uid="uid://bifxopvg6vc10" path="res://level_select.gd" id="12_dg77c"]
+[ext_resource type="AudioStream" uid="uid://dodtg0netss2k" path="res://Assets/SFX/Music/jazz-background-music-416542 1.mp3" id="14_yaehf"]
 [ext_resource type="Script" uid="uid://p5da503er5sn" path="res://GameOver.gd" id="15_2cqfq"]
+[ext_resource type="AudioStream" uid="uid://mqfbsqdkxjit" path="res://Assets/SFX/click_lydeffekt.mp3" id="15_074og"]
 [ext_resource type="Texture2D" uid="uid://civjcm10atjtu" path="res://Assets/Sprites/UI/axelreal.png" id="15_vivmo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycdy4"]
@@ -39,6 +42,12 @@ texture = ExtResource("3_7mycd")
 position = Vector2(-0.5, -1.5)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_ycdy4")
+
+[node name="DeathSFX" type="AudioStreamPlayer2D" parent="Hit"]
+process_mode = 3
+stream = ExtResource("5_cegan")
+volume_db = 6.0
+max_distance = 20000.0
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 position = Vector2(579, 355)
@@ -150,6 +159,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
+[node name="Music" type="AudioStreamPlayer" parent="ScreenUI/MainMenu"]
+stream = ExtResource("14_yaehf")
+autoplay = true
+
+[node name="ButtonSFX" type="AudioStreamPlayer" parent="ScreenUI/MainMenu"]
+stream = ExtResource("15_074og")
+
 [node name="Levels" type="TextureRect" parent="ScreenUI"]
 visible = false
 texture_repeat = 2
@@ -176,6 +192,12 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "1"
+
+[node name="Music" type="AudioStreamPlayer" parent="ScreenUI/Levels"]
+stream = ExtResource("14_yaehf")
+autoplay = true
+
+[node name="ButtonSFX" type="AudioStreamPlayer" parent="ScreenUI/Levels"]
 
 [node name="GameOver" type="VBoxContainer" parent="ScreenUI"]
 visible = false

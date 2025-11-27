@@ -3,6 +3,7 @@ extends TextureRect
 var button_array: Array[int]
 
 func pressed(button_number) -> void:
+	$ButtonSFX.play()
 	get_parent().toggle_menu("Levels")
 	get_tree().current_scene.load_level(button_number)
 
