@@ -1,5 +1,7 @@
 extends Node
 
+@export var map_length: int = 0
+
 func finish_level():
 	get_tree().quit()
 	
@@ -23,6 +25,7 @@ func load_level(LevelNumber: int):
 	var level = packed_level.instantiate()
 	
 	level.name = "CurrentLevel"
+	map_length = level.size.x*level.scale.x
 	
 	add_child(level)
 	start_level()

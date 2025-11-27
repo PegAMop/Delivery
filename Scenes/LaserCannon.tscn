@@ -21,7 +21,7 @@ expand_mode = 1
 script = ExtResource("2_vnmmp")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.15
 one_shot = true
 
 [node name="ShootSFX" type="AudioStreamPlayer" parent="."]

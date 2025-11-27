@@ -18,14 +18,14 @@ position = Vector2(192.57143, 29.714294)
 
 [node name="Goal" parent="." instance=ExtResource("2_riv1q")]
 z_index = 5
-position = Vector2(826, 203.42856)
+position = Vector2(668.00006, 208.85715)
 scale = Vector2(7, 7)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("4_kri6y")]
-position = Vector2(312, 208.85715)
+position = Vector2(707.4286, 35.42859)
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("4_kri6y")]
-position = Vector2(545.4286, 29.428574)
+position = Vector2(707.7143, 140)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_kri6y")
