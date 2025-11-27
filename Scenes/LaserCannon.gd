@@ -9,9 +9,10 @@ func _input(input: InputEvent) -> void:
 		var new_laser = laser.instantiate()
 		add_child(new_laser)
 		
-		new_laser.position = size/2
+		new_laser.position = $Cannon.position + ($Cannon.size/2)
 		new_laser.look_at(get_global_mouse_position())
 		new_laser.rotation -= PI/2
+		$Cannon.rotation = new_laser.rotation+PI
 		
 		can_shoot = false
 		

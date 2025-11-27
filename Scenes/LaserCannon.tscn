@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c51m5eud5bw5i"]
+[gd_scene load_steps=5 format=3 uid="uid://c51m5eud5bw5i"]
 
 [ext_resource type="Texture2D" uid="uid://cd62t1s0kk1t7" path="res://Assets/Sprites/Robot_neutral.png" id="1_62njn"]
 [ext_resource type="Script" uid="uid://c6o4yad5mq5hk" path="res://Scenes/LaserCannon.gd" id="2_vnmmp"]
 [ext_resource type="AudioStream" uid="uid://crv6hx2ai5yyu" path="res://Assets/SFX/laser-312360.mp3" id="3_e0jb4"]
+[ext_resource type="Texture2D" uid="uid://d4epfqw7tgwg7" path="res://Assets/Sprites/canonen.png" id="4_ir3a3"]
 
 [node name="LaserCannon" type="TextureRect"]
 anchors_preset = 7
@@ -25,5 +26,15 @@ one_shot = true
 
 [node name="ShootSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_e0jb4")
+
+[node name="Cannon" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 26.0
+offset_top = 41.0
+offset_right = 66.0
+offset_bottom = 81.0
+pivot_offset = Vector2(20, 20)
+texture = ExtResource("4_ir3a3")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
