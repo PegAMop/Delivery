@@ -1,18 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://nlsfrm4g8v70"]
+[gd_scene load_steps=5 format=3 uid="uid://nlsfrm4g8v70"]
 
 [ext_resource type="Texture2D" uid="uid://cdn1c15kaughx" path="res://Assets/Backgrounds/pano_lucas-1.png.png" id="1_36ke7"]
 [ext_resource type="PackedScene" uid="uid://dlrn5bs4tjthi" path="res://Scenes/goal.tscn" id="2_riv1q"]
+[ext_resource type="PackedScene" uid="uid://d08e3r2ih06pd" path="res://Scenes/BrickWall.tscn" id="4_kri6y"]
+[ext_resource type="AudioStream" uid="uid://daysnb4ko3kir" path="res://Assets/SFX/Music/Level1.mp3" id="5_kri6y"]
 
 [node name="CurrentLevel" type="TextureRect"]
 z_index = -1
-offset_right = 40.0
-offset_bottom = 40.0
+offset_top = 6.999996
+offset_right = 867.0
+offset_bottom = 207.0
 scale = Vector2(3.5, 3.5)
 texture = ExtResource("1_36ke7")
 
 [node name="SpawnPoint" type="Node2D" parent="."]
-position = Vector2(101, 78)
+position = Vector2(192.57143, 29.714294)
 
 [node name="Goal" parent="." instance=ExtResource("2_riv1q")]
-position = Vector2(826, 203.42856)
+z_index = 5
+position = Vector2(668.00006, 208.85715)
 scale = Vector2(7, 7)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("4_kri6y")]
+position = Vector2(707.4286, 35.42859)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("4_kri6y")]
+position = Vector2(707.7143, 140)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_kri6y")
+autoplay = true

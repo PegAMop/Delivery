@@ -9,4 +9,4 @@ func _physics_process(_delta: float) -> void:
 		offset_speed = int(abs(position.x-target.position.x))%10
 	elif offset_speed > 0:
 		offset_speed -=1
-	position.x += scroll_speed + offset_speed
+	position.x = min(position.x + scroll_speed + offset_speed, get_tree().current_scene.map_length-(get_window().size.x/2))

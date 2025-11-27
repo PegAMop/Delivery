@@ -1,40 +1,53 @@
-[gd_scene load_steps=14 format=3 uid="uid://u1kubdmwrssp"]
+[gd_scene load_steps=21 format=3 uid="uid://u1kubdmwrssp"]
 
 [ext_resource type="PackedScene" uid="uid://c51m5eud5bw5i" path="res://Scenes/LaserCannon.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://curylgcx4lk8t" path="res://main.gd" id="1_w48qg"]
-[ext_resource type="Texture2D" uid="uid://dnumjyq877c8" path="res://icon.svg" id="2_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://wswgco22cqib" path="res://Assets/Sprites/paper.png" id="3_7mycd"]
-[ext_resource type="PackedScene" uid="uid://ddbgahspl00oi" path="res://Scenes/node_2d.tscn" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://cghhde6ni1ere" path="res://hit.gd" id="3_w48qg"]
 [ext_resource type="PackedScene" uid="uid://dijue1qgbgnn3" path="res://Scenes/settings.tscn" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://cpjfr0ngwlec3" path="res://camera_2d.gd" id="4_lquwl"]
+[ext_resource type="AudioStream" uid="uid://lq4cf4tonmve" path="res://Assets/SFX/pixel-explosion-319166.mp3" id="5_cegan"]
 [ext_resource type="Script" uid="uid://pn3eyv1m2cg8" path="res://main_menu.gd" id="7_272bh"]
 [ext_resource type="Script" uid="uid://duenne2opb7rx" path="res://menumanager.gd" id="7_efxa6"]
+[ext_resource type="Material" uid="uid://djf0kuxdywxpg" path="res://Assets/Shaders/main.tres" id="7_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://d3i4fwikroljb" path="res://Assets/Sprites/UI/ButtonNormal.png" id="8_5vw27"]
+[ext_resource type="Texture2D" uid="uid://cvf0jm6ueq16k" path="res://Assets/Backgrounds/menu.png" id="8_w48qg"]
 [ext_resource type="Texture2D" uid="uid://citp5g81hqxyg" path="res://Assets/Sprites/UI/ButtonPressed.png" id="9_4c57u"]
 [ext_resource type="Texture2D" uid="uid://y45267wvsbwo" path="res://Assets/Sprites/UI/ButtonHover.png" id="9_kek77"]
 [ext_resource type="Script" uid="uid://bifxopvg6vc10" path="res://level_select.gd" id="12_dg77c"]
+[ext_resource type="AudioStream" uid="uid://dodtg0netss2k" path="res://Assets/SFX/Music/jazz-background-music-416542 1.mp3" id="14_yaehf"]
+[ext_resource type="Script" uid="uid://p5da503er5sn" path="res://GameOver.gd" id="15_2cqfq"]
+[ext_resource type="AudioStream" uid="uid://mqfbsqdkxjit" path="res://Assets/SFX/click_lydeffekt.mp3" id="15_074og"]
+[ext_resource type="Texture2D" uid="uid://civjcm10atjtu" path="res://Assets/Sprites/UI/axelreal.png" id="15_vivmo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycdy4"]
+size = Vector2(61.5, 33.5)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_w48qg")
-
-[node name="Bird" parent="." instance=ExtResource("3_h2yge")]
 
 [node name="Settings" parent="." instance=ExtResource("4_1bvp3")]
 
 [node name="Hit" type="RigidBody2D" parent="."]
 position = Vector2(582, 101)
 mass = 0.075
-gravity_scale = 0.3
-center_of_mass_mode = 1
-center_of_mass = Vector2(50, 0)
+gravity_scale = 0.15
+script = ExtResource("3_w48qg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hit"]
 scale = Vector2(2, 2)
 texture = ExtResource("3_7mycd")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hit"]
-position = Vector2(-44, 27)
-polygon = PackedVector2Array(0, 0, -13, -24, -11, -47, 20, -58, 66, -47, 96, -46, 101, -3, 93, -3, 62, -17, 36, -16)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit"]
+position = Vector2(-0.5, -1.5)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_ycdy4")
+
+[node name="DeathSFX" type="AudioStreamPlayer2D" parent="Hit"]
+process_mode = 3
+stream = ExtResource("5_cegan")
+volume_db = 6.0
+max_distance = 20000.0
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 position = Vector2(579, 355)
@@ -48,10 +61,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = -92.0
-offset_top = 140.0
-offset_right = 0.0
-offset_bottom = 232.0
+offset_left = -89.0
+offset_top = 142.0
+offset_right = 3.0
+offset_bottom = 234.0
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(2, 2)
@@ -62,13 +75,16 @@ script = ExtResource("7_efxa6")
 
 [node name="MainMenu" type="TextureRect" parent="ScreenUI"]
 process_mode = 3
+texture_repeat = 2
+material = ExtResource("7_ycdy4")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_0xm2m")
+texture = ExtResource("8_w48qg")
 expand_mode = 1
+stretch_mode = 1
 script = ExtResource("7_272bh")
 
 [node name="Options" type="VBoxContainer" parent="ScreenUI/MainMenu"]
@@ -143,14 +159,24 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
+[node name="Music" type="AudioStreamPlayer" parent="ScreenUI/MainMenu"]
+stream = ExtResource("14_yaehf")
+autoplay = true
+
+[node name="ButtonSFX" type="AudioStreamPlayer" parent="ScreenUI/MainMenu"]
+stream = ExtResource("15_074og")
+
 [node name="Levels" type="TextureRect" parent="ScreenUI"]
 visible = false
+texture_repeat = 2
+material = ExtResource("7_ycdy4")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_0xm2m")
+texture = ExtResource("8_w48qg")
+stretch_mode = 1
 script = ExtResource("12_dg77c")
 
 [node name="ButtonGrid" type="GridContainer" parent="ScreenUI/Levels"]
@@ -167,6 +193,41 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "1"
 
+[node name="Music" type="AudioStreamPlayer" parent="ScreenUI/Levels"]
+stream = ExtResource("14_yaehf")
+autoplay = true
+
+[node name="ButtonSFX" type="AudioStreamPlayer" parent="ScreenUI/Levels"]
+
+[node name="GameOver" type="VBoxContainer" parent="ScreenUI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -67.0
+offset_right = 100.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("15_2cqfq")
+
+[node name="TextureRect" type="TextureRect" parent="ScreenUI/GameOver"]
+layout_mode = 2
+texture = ExtResource("15_vivmo")
+
+[node name="Button" type="Button" parent="ScreenUI/GameOver"]
+layout_mode = 2
+text = "RETRY"
+
+[node name="Timer" type="Timer" parent="ScreenUI/GameOver"]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="button_up" from="ScreenUI/MainMenu/Options/Levels" to="ScreenUI/MainMenu" method="_on_levels_button_up"]
 [connection signal="button_up" from="ScreenUI/MainMenu/Options/Settings" to="ScreenUI/MainMenu" method="_on_settings_button_up"]
 [connection signal="button_up" from="ScreenUI/MainMenu/Options/Quit" to="ScreenUI/MainMenu" method="_on_quit_button_up"]
+[connection signal="button_up" from="ScreenUI/GameOver/Button" to="ScreenUI/GameOver" method="_on_button_button_up"]
+[connection signal="timeout" from="ScreenUI/GameOver/Timer" to="ScreenUI/GameOver" method="_on_timer_timeout"]

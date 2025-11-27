@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dodtg0netss2k"
+path="res://.godot/imported/jazz-background-music-416542 1.mp3-2c549c6997b172a9aa2393a5d0f09976.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Music/jazz-background-music-416542 1.mp3"
+dest_files=["res://.godot/imported/jazz-background-music-416542 1.mp3-2c549c6997b172a9aa2393a5d0f09976.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
