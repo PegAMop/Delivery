@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var raindrop = preload("res://rain.tscn")
+var raindrop = preload("res://Scenes/rain.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	position = Vector2(RandomNumberGenerator.new().randf_range(0,get_window().size.x), 0)

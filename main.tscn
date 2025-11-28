@@ -220,6 +220,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "2"
 
+[node name="3" type="Button" parent="ScreenUI/Levels/ButtonGrid"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "3"
+
 [node name="Music" type="AudioStreamPlayer" parent="ScreenUI/Levels"]
 stream = ExtResource("14_yaehf")
 autoplay = true
@@ -252,6 +258,9 @@ text = "RETRY"
 [node name="Timer" type="Timer" parent="ScreenUI/GameOver"]
 wait_time = 0.1
 one_shot = true
+
+[node name="Settings" parent="ScreenUI" instance=ExtResource("4_1bvp3")]
+visible = false
 
 [connection signal="button_up" from="ScreenUI/MainMenu/Options/Levels" to="ScreenUI/MainMenu" method="_on_levels_button_up"]
 [connection signal="button_up" from="ScreenUI/MainMenu/Options/Settings" to="ScreenUI/MainMenu" method="_on_settings_button_up"]

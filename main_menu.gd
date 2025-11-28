@@ -14,4 +14,5 @@ func _on_quit_button_up() -> void:
 
 func _on_settings_button_up() -> void:
 	$ButtonSFX.play()
-	pass # Replace with function body.
+	get_parent().toggle_menu("MainMenu")
+	get_parent().toggle_menu("Settings")
