@@ -3,7 +3,12 @@ extends Node
 @export var map_length: int = 0
 
 func finish_level():
-	get_tree().quit()
+	get_tree().reload_current_scene()
+	
+func throw(hit):
+	hit.freeze = false
+	hit.visible = true
+	hit.apply_force(Vector2(2000,-500))
 	
 func start_level():
 	var level = get_node("CurrentLevel")
@@ -18,7 +23,10 @@ func start_level():
 	hit.angular_velocity = 0
 	hit.rotation = 0
 	
-	print(spawn_point.global_position)
+	var arm = level.get_node("Arm")
+	arm.play("default")
+	arm.animation_finished.connect(throw.bind(hit))
+	
 
 func load_level(LevelNumber: int):
 	var packed_level = load(str("res://Scenes/Levels/Level", LevelNumber, ".tscn"))
