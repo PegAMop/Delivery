@@ -1,0 +1,342 @@
+[gd_scene load_steps=31 format=3 uid="uid://c713kry4h6t60"]
+
+[ext_resource type="Texture2D" uid="uid://crpgnn2j74ufl" path="res://Assets/Backgrounds/level1.png" id="1_4rk67"]
+[ext_resource type="PackedScene" uid="uid://dlrn5bs4tjthi" path="res://Scenes/goal.tscn" id="2_f8qf7"]
+[ext_resource type="AudioStream" uid="uid://daysnb4ko3kir" path="res://Assets/SFX/Music/Level1.mp3" id="3_lmdar"]
+[ext_resource type="Texture2D" uid="uid://cof1u4cxx5gr1" path="res://Assets/Sprites/BrickWall.png" id="4_d1swa"]
+[ext_resource type="Texture2D" uid="uid://d275ad1d4bv0f" path="res://Assets/Sprites/arm.png" id="5_ipaot"]
+[ext_resource type="PackedScene" uid="uid://d08e3r2ih06pd" path="res://Scenes/BrickWall.tscn" id="6_ao4h1"]
+[ext_resource type="PackedScene" uid="uid://ddbgahspl00oi" path="res://Scenes/node_2d.tscn" id="7_f8qf7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xvio3"]
+texture = ExtResource("4_d1swa")
+texture_region_size = Vector2i(8, 8)
+2:0/0 = 0
+2:1/0 = 0
+2:2/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+3:1/size_in_atlas = Vector2i(2, 6)
+3:1/0 = 0
+2:3/0 = 0
+2:4/0 = 0
+2:5/0 = 0
+2:6/0 = 0
+5:0/0 = 0
+5:1/0 = 0
+5:2/0 = 0
+5:3/0 = 0
+5:4/0 = 0
+5:5/0 = 0
+5:6/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_kri6y"]
+sources/0 = SubResource("TileSetAtlasSource_xvio3")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ipdw"]
+atlas = ExtResource("5_ipaot")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8h4de"]
+atlas = ExtResource("5_ipaot")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcebb"]
+atlas = ExtResource("5_ipaot")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3nwb"]
+atlas = ExtResource("5_ipaot")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57lp3"]
+atlas = ExtResource("5_ipaot")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5ptj"]
+atlas = ExtResource("5_ipaot")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77iba"]
+atlas = ExtResource("5_ipaot")
+region = Rect2(200, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67y36"]
+atlas = ExtResource("5_ipaot")
+region = Rect2(300, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hk4vc"]
+atlas = ExtResource("5_ipaot")
+region = Rect2(0, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wiu4c"]
+atlas = ExtResource("5_ipaot")
+region = Rect2(100, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hula"]
+atlas = ExtResource("5_ipaot")
+region = Rect2(200, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spq4p"]
+atlas = ExtResource("5_ipaot")
+region = Rect2(300, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fhce"]
+atlas = ExtResource("5_ipaot")
+region = Rect2(0, 300, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqlrs"]
+atlas = ExtResource("5_ipaot")
+region = Rect2(100, 300, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htexa"]
+atlas = ExtResource("5_ipaot")
+region = Rect2(200, 300, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2oprd"]
+atlas = ExtResource("5_ipaot")
+region = Rect2(300, 300, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6c81"]
+atlas = ExtResource("5_ipaot")
+region = Rect2(0, 400, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xawdx"]
+atlas = ExtResource("5_ipaot")
+region = Rect2(100, 400, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lty4u"]
+atlas = ExtResource("5_ipaot")
+region = Rect2(200, 400, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efsfe"]
+atlas = ExtResource("5_ipaot")
+region = Rect2(300, 400, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_et44u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ipdw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8h4de")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcebb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3nwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57lp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5ptj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77iba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67y36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hk4vc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wiu4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hula")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spq4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fhce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqlrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htexa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2oprd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6c81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xawdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lty4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efsfe")
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
+
+[node name="CurrentLevel" type="TextureRect"]
+z_index = -1
+offset_top = 6.999996
+offset_right = 867.0
+offset_bottom = 207.0
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("1_4rk67")
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(166.2857, 105.71428)
+
+[node name="Goal" parent="." instance=ExtResource("2_f8qf7")]
+z_index = 5
+position = Vector2(692.28564, 236.85712)
+scale = Vector2(14, 14)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_lmdar")
+autoplay = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_kri6y")
+
+[node name="Arm" type="AnimatedSprite2D" parent="."]
+position = Vector2(139.14285, 136.2857)
+sprite_frames = SubResource("SpriteFrames_et44u")
+frame_progress = 0.21780407
+
+[node name="StaticBody2D" parent="." instance=ExtResource("6_ao4h1")]
+position = Vector2(771.99994, 163.42856)
+collision_layer = 2
+collision_mask = 2
+
+[node name="StaticBody2D5" parent="." instance=ExtResource("6_ao4h1")]
+position = Vector2(431.14288, 160.57143)
+collision_layer = 2
+collision_mask = 2
+
+[node name="StaticBody2D6" parent="." instance=ExtResource("6_ao4h1")]
+position = Vector2(274.2857, 164)
+collision_layer = 2
+collision_mask = 2
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("6_ao4h1")]
+position = Vector2(771.7143, 51.142868)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Node2D" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D2" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D3" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D4" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D5" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D6" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D7" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D8" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D9" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D10" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D11" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D12" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D13" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D14" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D15" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D16" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D17" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D18" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D19" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D20" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D21" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D22" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D23" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D24" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D25" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D26" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D27" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D28" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D29" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D30" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D31" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D32" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D33" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D34" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D35" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D36" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D37" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D38" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D39" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D40" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D41" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D42" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D43" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D44" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D45" parent="." instance=ExtResource("7_f8qf7")]
+
+[node name="Node2D46" parent="." instance=ExtResource("7_f8qf7")]
+position = Vector2(0.57142854, -41.999996)
+
+[node name="Node2D47" parent="." instance=ExtResource("7_f8qf7")]
+position = Vector2(0.57142854, -41.999996)
+
+[node name="Node2D48" parent="." instance=ExtResource("7_f8qf7")]
+position = Vector2(0.57142854, -41.999996)
+
+[node name="Node2D49" parent="." instance=ExtResource("7_f8qf7")]
+position = Vector2(0.57142854, -41.999996)
+
+[node name="Node2D50" parent="." instance=ExtResource("7_f8qf7")]
+position = Vector2(0.57142854, -41.999996)
+
+[node name="StaticBody2D3" parent="." instance=ExtResource("6_ao4h1")]
+position = Vector2(671.4286, -16.000002)
+rotation = 1.5707964
+scale = Vector2(1, 14.235673)
+collision_layer = 2
+collision_mask = 2
