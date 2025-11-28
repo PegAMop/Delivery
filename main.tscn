@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://u1kubdmwrssp"]
+[gd_scene load_steps=22 format=3 uid="uid://u1kubdmwrssp"]
 
 [ext_resource type="PackedScene" uid="uid://c51m5eud5bw5i" path="res://Scenes/LaserCannon.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://curylgcx4lk8t" path="res://main.gd" id="1_w48qg"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://p5da503er5sn" path="res://GameOver.gd" id="15_2cqfq"]
 [ext_resource type="AudioStream" uid="uid://mqfbsqdkxjit" path="res://Assets/SFX/click_lydeffekt.mp3" id="15_074og"]
 [ext_resource type="Texture2D" uid="uid://civjcm10atjtu" path="res://Assets/Sprites/UI/axelreal.png" id="15_vivmo"]
+[ext_resource type="Texture2D" uid="uid://cbt7bbowmxdtf" path="res://Assets/Sprites/UI/Title.png" id="17_82xsv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycdy4"]
 size = Vector2(61.5, 33.5)
@@ -29,9 +30,13 @@ script = ExtResource("1_w48qg")
 [node name="Settings" parent="." instance=ExtResource("4_1bvp3")]
 
 [node name="Hit" type="RigidBody2D" parent="."]
+visible = false
 position = Vector2(582, 101)
+collision_layer = 3
+collision_mask = 3
 mass = 0.075
 gravity_scale = 0.15
+freeze = true
 script = ExtResource("3_w48qg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hit"]
@@ -56,6 +61,7 @@ target = NodePath("../Hit")
 scroll_speed = 2
 
 [node name="LaserCannon" parent="Camera2D" instance=ExtResource("1_ig7tw")]
+z_index = 5
 anchors_preset = 0
 anchor_left = 0.0
 anchor_top = 0.0
@@ -89,13 +95,16 @@ script = ExtResource("7_272bh")
 
 [node name="Options" type="VBoxContainer" parent="ScreenUI/MainMenu"]
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 100.0
-offset_top = -16.0
-offset_right = 116.0
-offset_bottom = 16.0
+offset_left = -44.0
+offset_top = 15.0
+offset_right = -28.0
+offset_bottom = 47.0
+grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(6, 6)
 pivot_offset = Vector2(0, 16)
@@ -166,6 +175,18 @@ autoplay = true
 [node name="ButtonSFX" type="AudioStreamPlayer" parent="ScreenUI/MainMenu"]
 stream = ExtResource("15_074og")
 
+[node name="TextureRect" type="TextureRect" parent="ScreenUI/MainMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -225.0
+offset_top = 50.0
+offset_right = 225.0
+offset_bottom = 150.0
+grow_horizontal = 2
+texture = ExtResource("17_82xsv")
+
 [node name="Levels" type="TextureRect" parent="ScreenUI"]
 visible = false
 texture_repeat = 2
@@ -192,6 +213,12 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "1"
+
+[node name="2" type="Button" parent="ScreenUI/Levels/ButtonGrid"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "2"
 
 [node name="Music" type="AudioStreamPlayer" parent="ScreenUI/Levels"]
 stream = ExtResource("14_yaehf")
