@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var raining = true
 
-var raindrop = preload("res://rain.tscn")
+var raindrop = preload("res://Scenes/rain.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

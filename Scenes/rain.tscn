@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dc66pi0lm5sxm"]
 
-[ext_resource type="Script" uid="uid://ctvu3agti8ori" path="res://rainscript.gd" id="1_ci28e"]
-[ext_resource type="Texture2D" uid="uid://p2v0u23w6d73" path="res://icon.svg" id="2_agfoc"]
+[ext_resource type="Script" uid="uid://w488i2v887p7" path="res://Scenes/rainscript.gd" id="1_ci28e"]
+[ext_resource type="Texture2D" uid="uid://dvvqltqxvkpvi" path="res://Assets/Sprites/Eagle.png" id="2_ypaoi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6wwtt"]
 height = 126.0
@@ -13,7 +13,7 @@ script = ExtResource("1_ci28e")
 
 [node name="Sprite2D" type="Sprite2D" parent="Rain"]
 scale = Vector2(0.078, 0.5)
-texture = ExtResource("2_agfoc")
+texture = ExtResource("2_ypaoi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rain"]
 scale = Vector2(0.5, 0.5)
