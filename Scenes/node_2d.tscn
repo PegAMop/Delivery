@@ -55,3 +55,5 @@ stream = ExtResource("3_hh5uf")
 volume_db = 24.0
 pitch_scale = 1.2
 autoplay = true
+
+[node name="Timer" type="Timer" parent="Bird"]

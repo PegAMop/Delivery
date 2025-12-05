@@ -1,23 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://dijue1qgbgnn3"]
+[gd_scene load_steps=2 format=3 uid="uid://dijue1qgbgnn3"]
 
-[ext_resource type="Script" path="res://settings.gd" id="1_fpkmy"]
-[ext_resource type="FontFile" uid="uid://2wuiw4w3a6ws" path="res://Font/GrapeSoda.ttf" id="2_rldh4"]
-[ext_resource type="AudioStream" uid="uid://bwjlb8ur564no" path="res://MusikkOgLyder/analog-appliance-button-5-185280.mp3" id="5_nrx3k"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1c50o"]
-bg_color = Color(0.124083, 0.124083, 0.124083, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64i3r"]
-bg_color = Color(0, 0, 0, 1)
-border_width_top = 20
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qd14j"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sfah1"]
-border_width_top = 40
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_ksoy1"]
+[ext_resource type="Script" uid="uid://rjp4dj8nscre" path="res://Scenes/settings.gd" id="1_fpkmy"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -27,15 +10,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fpkmy")
-
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1c50o")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -47,73 +21,12 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 40
 
 [node name="volume_label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_rldh4")
-theme_override_font_sizes/font_size = 50
 text = "Volume"
 
 [node name="Volume" type="HSlider" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_styles/slider = SubResource("StyleBoxFlat_64i3r")
-theme_override_styles/grabber_area = SubResource("StyleBoxFlat_qd14j")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_sfah1")
-
-[node name="Mutelabel" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_rldh4")
-theme_override_font_sizes/font_size = 40
-text = "Mute"
-
-[node name="Mute" type="CheckBox" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-theme_override_constants/icon_max_width = 30
-expand_icon = true
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_rldh4")
-theme_override_font_sizes/font_size = 50
-text = "Resolutions"
-
-[node name="Resolution" type="OptionButton" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-item_count = 3
-popup/item_0/text = "1920x1080"
-popup/item_1/text = "1600x900"
-popup/item_1/id = 1
-popup/item_2/text = "1280x720"
-popup/item_2/id = 2
-
-[node name="BackButton" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -311.5
-offset_top = -68.0
-offset_right = 311.5
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_rldh4")
-theme_override_font_sizes/font_size = 60
-text = "Back"
-icon = SubResource("AnimatedTexture_ksoy1")
-
-[node name="Musikk" type="AudioStreamPlayer" parent="."]
-volume_db = -20.0
-
-[node name="clicksound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_nrx3k")
-volume_db = -20.0
 
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/Volume" to="." method="_on_volume_value_changed"]
-[connection signal="toggled" from="MarginContainer/VBoxContainer/Mute" to="." method="_on_mute_toggled"]
-[connection signal="item_selected" from="MarginContainer/VBoxContainer/Resolution" to="." method="_on_resolution_item_selected"]
-[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

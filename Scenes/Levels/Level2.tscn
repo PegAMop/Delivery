@@ -194,8 +194,8 @@ position = Vector2(166.2857, 105.71428)
 
 [node name="Goal" parent="." instance=ExtResource("2_f8qf7")]
 z_index = 5
-position = Vector2(692.28564, 236.85712)
-scale = Vector2(14, 14)
+position = Vector2(712.5715, 231.7143)
+scale = Vector2(9, 9)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_lmdar")
@@ -211,23 +211,15 @@ frame_progress = 0.21780407
 
 [node name="StaticBody2D" parent="." instance=ExtResource("6_ao4h1")]
 position = Vector2(771.99994, 163.42856)
-collision_layer = 2
-collision_mask = 2
 
 [node name="StaticBody2D5" parent="." instance=ExtResource("6_ao4h1")]
 position = Vector2(431.14288, 160.57143)
-collision_layer = 2
-collision_mask = 2
 
 [node name="StaticBody2D6" parent="." instance=ExtResource("6_ao4h1")]
 position = Vector2(274.2857, 164)
-collision_layer = 2
-collision_mask = 2
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("6_ao4h1")]
 position = Vector2(771.7143, 51.142868)
-collision_layer = 2
-collision_mask = 2
 
 [node name="Node2D" parent="." instance=ExtResource("7_f8qf7")]
 

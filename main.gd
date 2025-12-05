@@ -18,10 +18,12 @@ func start_level():
 	
 	camera.global_position.x = spawn_point.global_position.x
 	
+	hit.visible = false
 	hit.global_position = spawn_point.global_position
 	hit.linear_velocity = Vector2.ZERO
 	hit.angular_velocity = 0
 	hit.rotation = 0
+	hit.freeze = true
 	
 	var arm = level.get_node("Arm")
 	arm.play("default")

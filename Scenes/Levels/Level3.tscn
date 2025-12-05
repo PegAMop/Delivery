@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://crpgnn2j74ufl" path="res://Assets/Backgrounds/level1.png" id="1_ve7n4"]
 [ext_resource type="PackedScene" uid="uid://dlrn5bs4tjthi" path="res://Scenes/goal.tscn" id="2_d4xud"]
 [ext_resource type="AudioStream" uid="uid://daysnb4ko3kir" path="res://Assets/SFX/Music/Level1.mp3" id="3_q5el5"]
-[ext_resource type="Texture2D" uid="uid://cof1u4cxx5gr1" path="res://Assets/Sprites/LevelSprites/BrickWall.png" id="4_t0ble"]
+[ext_resource type="Texture2D" uid="uid://cof1u4cxx5gr1" path="res://Assets/Sprites/BrickWall.png" id="4_t0ble"]
 [ext_resource type="Texture2D" uid="uid://d275ad1d4bv0f" path="res://Assets/Sprites/arm.png" id="5_nvbyj"]
 [ext_resource type="PackedScene" uid="uid://chpl40vq31p1d" path="res://Scenes/yes.tscn" id="6_0kf4d"]
 [ext_resource type="PackedScene" uid="uid://d08e3r2ih06pd" path="res://Scenes/BrickWall.tscn" id="6_3i7ro"]
@@ -194,8 +194,8 @@ position = Vector2(166.2857, 105.71428)
 
 [node name="Goal" parent="." instance=ExtResource("2_d4xud")]
 z_index = 5
-position = Vector2(692.28564, 236.85712)
-scale = Vector2(14, 14)
+position = Vector2(700.00006, 242.00002)
+scale = Vector2(9, 9)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_q5el5")
@@ -222,4 +222,15 @@ position = Vector2(758.2857, 76)
 position = Vector2(758.2857, -27.999992)
 
 [node name="StaticBody2D4" parent="." instance=ExtResource("6_3i7ro")]
-position = Vector2(754.5714, -135.14285)
+position = Vector2(758.57135, -396.5714)
+scale = Vector2(1.1997755, 5.6730933)
+
+[node name="StaticBody2D5" parent="." instance=ExtResource("6_3i7ro")]
+position = Vector2(513.1428, -28.571434)
+rotation = -1.4599882
+scale = Vector2(0.5328031, 2.3724804)
+
+[node name="StaticBody2D6" parent="." instance=ExtResource("6_3i7ro")]
+position = Vector2(613.1428, -321.14282)
+rotation = -1.4599882
+scale = Vector2(0.5328031, 12.424763)

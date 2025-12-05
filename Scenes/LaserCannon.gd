@@ -12,7 +12,6 @@ func _input(input: InputEvent) -> void:
 		new_laser.position = $Cannon.position + ($Cannon.size/2)
 		new_laser.look_at(get_global_mouse_position())
 		new_laser.rotation -= PI/2
-		$Cannon.rotation = new_laser.rotation+PI
 		
 		can_shoot = false
 		
@@ -23,3 +22,6 @@ func _input(input: InputEvent) -> void:
 
 func _on_timer_timeout() -> void:
 	can_shoot = true
+	
+func _process(_delta: float) -> void:
+		$Cannon.rotation = $Cannon.global_position.angle_to_point(get_global_mouse_position()) + (PI/2)

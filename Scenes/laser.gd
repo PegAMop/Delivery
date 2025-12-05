@@ -11,7 +11,7 @@ func _physics_process(_delta: float) -> void:
 	var next_gposition = global_position + movement_offset
 	
 	var space_state = get_world_2d().direct_space_state
-	var raycast_query = PhysicsRayQueryParameters2D.create(global_position, next_gposition)
+	var raycast_query = PhysicsRayQueryParameters2D.create(global_position, next_gposition, 2)
 	var raycast_result = space_state.intersect_ray(raycast_query)
 	
 	if raycast_result:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://u1kubdmwrssp"]
+[gd_scene load_steps=23 format=3 uid="uid://u1kubdmwrssp"]
 
 [ext_resource type="PackedScene" uid="uid://c51m5eud5bw5i" path="res://Scenes/LaserCannon.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://curylgcx4lk8t" path="res://main.gd" id="1_w48qg"]
@@ -21,6 +21,11 @@
 [ext_resource type="Texture2D" uid="uid://civjcm10atjtu" path="res://Assets/Sprites/UI/axelreal.png" id="15_vivmo"]
 [ext_resource type="Texture2D" uid="uid://cbt7bbowmxdtf" path="res://Assets/Sprites/UI/Title.png" id="17_82xsv"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_82xsv"]
+friction = 0.0
+rough = true
+bounce = 0.3
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycdy4"]
 size = Vector2(61.5, 33.5)
 
@@ -31,10 +36,12 @@ script = ExtResource("1_w48qg")
 
 [node name="Hit" type="RigidBody2D" parent="."]
 visible = false
+z_index = 67
 position = Vector2(582, 101)
 collision_layer = 3
 collision_mask = 3
 mass = 0.075
+physics_material_override = SubResource("PhysicsMaterial_82xsv")
 gravity_scale = 0.15
 freeze = true
 script = ExtResource("3_w48qg")
@@ -175,16 +182,12 @@ autoplay = true
 [node name="ButtonSFX" type="AudioStreamPlayer" parent="ScreenUI/MainMenu"]
 stream = ExtResource("15_074og")
 
-[node name="TextureRect" type="TextureRect" parent="ScreenUI/MainMenu"]
+[node name="Title" type="TextureRect" parent="ScreenUI/MainMenu"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -225.0
-offset_top = 50.0
-offset_right = 225.0
-offset_bottom = 150.0
-grow_horizontal = 2
+offset_left = 11.999999
+offset_right = 462.0
+offset_bottom = 100.0
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("17_82xsv")
 
 [node name="Levels" type="TextureRect" parent="ScreenUI"]
